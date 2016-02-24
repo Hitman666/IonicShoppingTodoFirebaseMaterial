@@ -1,0 +1,24 @@
+<ion-view view-title="Login" align-title="left">
+    <ion-content class="loginContentStyle">
+        <div class="hero no-header flat">
+            <div class="content">
+                {{err}}
+                <div class="app-icon"></div>
+                <h1>ShoppingTODO</h1>
+            </div>
+        </div>
+        <!-- <div class="list">
+            <ion-md-input placeholder="Username" highlight-color="balanced" type="email" ng-model="user.email"></ion-md-input>
+            <ion-md-input placeholder="Password" highlight-color="energized" type="password" ng-model="user.password"></ion-md-input>
+        </div> -->
+        
+        <div class="padding">
+            <!-- <button class="button button-full button-positive ink" ng-click="validateUser()">Login</button> -->
+            <!-- <button class="button button-full button-positive ink" ng-click="logoutUser()">Logout</button> -->
+            <button class="button button-full icon-left ion-social-facebook button-positive-900 ink" ng-click="oauthLogin('facebook')">Facebook login</button>
+            <button class="button button-full icon-left ion-social-google button-assertive-900 ink" ng-click="oauthLogin('google')">Google login</button>
+            <!-- <button class="button button-full icon-left ion-social-twitter button-calm ink" ng-click="oauthLogin('twitter')">Twitter login</button> -->
+            <button class="button button-full button-energized" style="color:black;" ng-click="testAppWithoutLogin()">Try the app without login</button>
+        </div>
+    </ion-content>
+</ion-view>

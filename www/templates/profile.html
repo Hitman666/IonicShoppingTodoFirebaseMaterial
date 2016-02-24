@@ -1,0 +1,45 @@
+<ion-view view-title="Profile" hide-back-button="true">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="loginContentStyle slide-up">
+            <div class="hero">
+                <div class="content">
+                    <div class="avatar" ng-style="profileImage" ng-show="'{{MetaData.profileImageURL}}'"></div>
+                    <h3><a class="light">{{ MetaData.name }}</a></h3>
+                    <h4>{{ MetaData.email }}</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item calm">
+                <i class="icon ion-android-done-all"></i> Your Projects
+            </a>
+
+            <a ng-click="logout()" class="tab-item assertive">
+                <i class="icon ion-log-out"></i> Logout
+            </a>
+        </div>
+        
+        <div class="card" ng-show="!groups.length">
+            <div class="item item-divider">
+                <span class="assertive">No projects</span>
+            </div>
+
+            <div class="item item-text-wrap">
+                Add a new project by clicking the + button below
+            </div>          
+        </div>
+
+        <ion-list class="list" ng-show="groups.length">
+            <ion-item ui-sref='app.list({id: g.id, ime: g.name})' class="item item-avatar item-icon-right" ng-repeat="g in groups | filter:!emptyOrNull">
+                <img ng-src="img/project{{($index % 10) + 1}}.png" />
+                <h2 class="myProjectTitle">{{ g.name }}</h2>
+                
+                <div ng-repeat="member in g.memberList" class="sharingWith" ng-style="{'background': 'url({{member.profileImageURL}})', 'background-size':'30px 30px', 'background-repeat': 'no-repeat'}" ng-show="'{{member.profileImageURL}}'" ng-click="$event.stopImmediatePropagation(); $event.preventDefault(); RemoveUserFromGroup({{member}},{{g}});"></div>
+                
+                <ion-option-button class="button-assertive" ng-click="Remove('{{g.id}}')">Delete</ion-option-button>
+                <ion-option-button class="button-positive" ng-click="Edit('{{g.id}}', '{{g.name}}')">Edit</ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

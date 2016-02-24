@@ -1,0 +1,52 @@
+<ion-view view-title="{{ime}}">
+    
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="addUserToGroup()"><i class="icon ion-person-add"></i></button>
+    </ion-nav-buttons>
+
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="bar bar-header bar-light">
+            <div class="row">
+                <div class="col">
+                    <i class="icon ion-ios-cart"></i>
+                    To buy: <b>{{total.ToBuy | number : 2}}</b>
+                </div>
+
+                <div class="col">
+                    <i class="icon ion-card"></i>
+                    Bought: <b>{{total.Bought | number : 2}}</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="content has-header">
+            <div class="row">
+                <span class="col col-10 item item-input noBorder centerText" style="margin-left: -5px; margin-right: 2px;">Del.</span>
+                <span class="col col-30 item item-input noBorder">Name</span>
+                <span class="col item item-input noBorder">Price</span>
+                <span class="col col-17 item item-input noBorder">Qty.</span>
+                <span class="col item item-input noBorder centerText">Action</span>            
+            </div>
+
+            <div class="row" ng-repeat="(key,item) in items | orderObjectBy:'isCompleted'">
+                <span class="col col-10 item item-input noBorder centerText" style="margin-left: -5px; margin-right: 2px;">
+                    <button class="button button-small button-assertive noPadding" ng-click="Remove('{{item.id}}')" >
+                        <i class="icon ion-trash-a"></i>
+                    </button>
+                </span>
+
+                <input class="col col-30 item item-input myInput" type="text" ng-model="item.name" ng-disabled="item.isCompleted" />
+                <input class="col item item-input myInput" type="number" step="0.01" min="0" ng-model="item.price" ng-disabled="item.isCompleted" />
+                <input class="col col-17 item item-input myInput" type="number" step="0.01" min="0" ng-model="item.quantity" ng-disabled="item.isCompleted" />
+                
+                <span class="col item item-input noBorder">
+                    <button class="button button-small button-positive myCheckMarkButton" ng-click="CheckOrUncheck('{{item.id}}')" >
+                        <i class="icon ion-checkmark-circled"></i>
+                    </button>
+                </span>            
+            </div>
+
+            
+        </div>
+    </ion-content>
+</ion-view>
