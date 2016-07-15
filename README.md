@@ -1,6 +1,6 @@
 #IonicShoppingTodoMaterial
 
-Project accompanying the [tutorial written for Pluralsight](link will be put here once live) on how to make your own Ionic Shopping TODO application with Firebase and Material design.
+Project accompanying the [tutorial written for Pluralsight](http://tutorials.pluralsight.com/front-end-javascript/how-to-build-a-shopping-app-with-ionic-firebase) on how to make your own Ionic Shopping TODO application with Firebase and Material design.
 
 This project is based on the awesome Ionic Material template: https://github.com/zachsoft/Ionic-Material.
 
