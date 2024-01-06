@@ -1,4 +1,4 @@
-#IonicShoppingTodoMaterial
+# IonicShoppingTodoMaterial
 
 Project accompanying the [tutorial written for Pluralsight](http://tutorials.pluralsight.com/front-end-javascript/how-to-build-a-shopping-app-with-ionic-firebase) on how to make your own Ionic Shopping TODO application with Firebase and Material design.
 
